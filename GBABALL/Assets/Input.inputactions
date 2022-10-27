@@ -1,5 +1,5 @@
 {
-    "name": "GBABALL",
+    "name": "Input",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,24 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "fbb9d7bd-c9c1-474c-944d-c030d688b9c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "d52d26ba-8eb8-49ab-9865-8d9093a572ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "51870936-d4c6-4318-99c6-c169a593eb9f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -218,6 +236,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5cb2af08-4319-40f9-9f7d-991450e14ffa",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05ebba20-5b90-4735-a60f-e7de524659b8",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
