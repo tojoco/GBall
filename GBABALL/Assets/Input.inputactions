@@ -42,9 +42,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New action",
+                    "name": " Crouch",
                     "type": "Button",
-                    "id": "51870936-d4c6-4318-99c6-c169a593eb9f",
+                    "id": "e40f3650-d236-49e5-b043-e439d2748df9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -252,12 +252,12 @@
                 },
                 {
                     "name": "",
-                    "id": "05ebba20-5b90-4735-a60f-e7de524659b8",
-                    "path": "",
+                    "id": "e7fe2447-5b07-457a-aca5-73e7c28a328a",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": " Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

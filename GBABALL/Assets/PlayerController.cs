@@ -10,7 +10,12 @@ public class PlayerController : MonoBehaviour
     public float sensitivity, maxForce, jumpForce, speed, SprintSpeed ;
     private Vector2 move, look;
     private float lookRotation;
-    public bool grounded, sprinting;
+    public bool grounded, sprinting, isCrouching;
+
+     [Header("Crouching")]
+    public float crouchSpeed;
+    public float crouchYScale;
+    private float startYScale;
  
     public void OnMove (InputAction.CallbackContext context) 
     {
@@ -27,12 +32,16 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
  
-      public void Sprint (InputAction.CallbackContext context) 
-    {
+      public void Sprint (InputAction.CallbackContext context){
          sprinting = context.ReadValueAsButton();
-    }
+        
+         }
 
-  
+      public void OnCrouch(InputAction.CallbackContext context) 
+      {
+        isCrouching = context.ReadValueAsButton();
+        crouch();
+      }
 
 
    
@@ -56,11 +65,14 @@ public class PlayerController : MonoBehaviour
           //find target velocity
         Vector3 currentVelocity = rb.velocity;
         Vector3 targetVelocity = new Vector3(move.x, 0, move. y);
-        if (sprinting)
+        if (sprinting && !isCrouching)
         {
         targetVelocity *= SprintSpeed;
-        } else if (!sprinting) {
-        targetVelocity *= speed;
+        } else if (isCrouching) {
+        targetVelocity *= crouchSpeed;
+        } else 
+        {
+            targetVelocity *= speed;
         }
         //allign dibrection
         targetVelocity = transform.TransformDirection(targetVelocity);
@@ -90,6 +102,7 @@ public class PlayerController : MonoBehaviour
     {
        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; 
+        startYScale = transform.localScale.y;
     }
  
     // Update is called once per frame
@@ -108,6 +121,17 @@ public class PlayerController : MonoBehaviour
         grounded = state;
     }
  
+    public void crouch() 
+    {
+        if(isCrouching && grounded) 
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        } else 
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        }
+    }
  
     
  
