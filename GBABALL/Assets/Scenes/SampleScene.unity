@@ -1465,9 +1465,21 @@ MonoBehaviour:
     m_ActionId: d52d26ba-8eb8-49ab-9865-8d9093a572ff
     m_ActionName: Player/SprintStart[/Keyboard/shift]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 51870936-d4c6-4318-99c6-c169a593eb9f
-    m_ActionName: movies/New action
+      m_Calls:
+      - m_Target: {fileID: 1644549783}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e40f3650-d236-49e5-b043-e439d2748df9
+    m_ActionName: Player/ Crouch[/Keyboard/ctrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1494,6 +1506,9 @@ MonoBehaviour:
   SprintSpeed: 10
   grounded: 0
   sprinting: 0
+  isCrouching: 0
+  crouchSpeed: 3
+  crouchYScale: 0.5
 --- !u!1 &1693331327
 GameObject:
   m_ObjectHideFlags: 0
