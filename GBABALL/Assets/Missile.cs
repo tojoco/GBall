@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Tarodev {
+namespace aeoe {
     
     public class Missile : MonoBehaviour {
         [Header("REFERENCES")] 
