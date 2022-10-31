@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tarodev {
+namespace aeoe {
 	public interface IExplode {
 		void Explode();
 	}

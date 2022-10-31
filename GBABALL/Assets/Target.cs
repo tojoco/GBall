@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tarodev {
+namespace aeoe {
     public class Target : MonoBehaviour, IExplode {
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private float _size = 10;

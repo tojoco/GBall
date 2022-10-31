@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Tarodev {
+namespace aeoe {
     
     public class Missile : MonoBehaviour {
         [Header("REFERENCES")] 
@@ -10,7 +10,7 @@ namespace Tarodev {
         [SerializeField] private GameObject _explosionPrefab;
 
         [Header("MOVEMENT")] 
-        [SerializeField] private float _speed = 15;
+        [SerializeField] private float _speed = 1;
         [SerializeField] private float _rotateSpeed = 95;
 
         [Header("PREDICTION")] 
@@ -24,6 +24,7 @@ namespace Tarodev {
         [SerializeField] private float _deviationSpeed = 2;
 
         private void FixedUpdate() {
+            _speed++;
             _rb.velocity = transform.forward * _speed;
 
             var leadTimePercentage = Mathf.InverseLerp(_minDistancePredict, _maxDistancePredict, Vector3.Distance(transform.position, _target.transform.position));
@@ -56,12 +57,15 @@ namespace Tarodev {
             _rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rotation, _rotateSpeed * Time.deltaTime));
         }
 
-        private void OnCollisionEnter(Collision collision) {
-            if(_explosionPrefab) Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-            if (collision.transform.TryGetComponent<IExplode>(out var ex)) ex.Explode();
-   
-            Destroy(gameObject);
+           private void OnCollisionEnter(Collision collision) {
+            if (collision.transform.TryGetComponent<IExplode>(out var ex))
+            {
+              ex.Explode();
+              if(_explosionPrefab) Instantiate(_explosionPrefab, transform.position, Quaternion.identity); //INCLUDE THE INSTANTIATE HERE AS WELL
+              Destroy(gameObject);
+            }
         }
+        
 
         private void OnDrawGizmos() {
             Gizmos.color = Color.red;
